@@ -50,3 +50,32 @@ describe('the storeMovieActorsToDB function,', () => {
 	});
     
 });
+
+describe('the retriveMovieMetadataFromDB function,', () => {
+
+	it('should retrieve details of the movie', async () => {
+		const mockValues = {
+			movieName:'The Shawshank Redemption',
+		};
+		const mockSequelize = jest.spyOn(db.movies, 'findAll');
+		mockSequelize.mockResolvedValue();
+		await dbOperations.retriveMovieMetadataFromDB(mockValues);
+		expect(mockSequelize).toHaveBeenCalled();
+		mockSequelize.mockRestore();
+	});
+    
+});
+
+describe('the retriveMovieGenreFromDB function,', () => {
+
+	it('should retrieve genre of the movie given number', async () => {
+		const mockValues = '1';
+
+		const mockSequelize = jest.spyOn(db.genres, 'findAll');
+		mockSequelize.mockResolvedValue();
+		await dbOperations.retriveMovieGenreFromDB(mockValues);
+		expect(mockSequelize).toHaveBeenCalled();
+		mockSequelize.mockRestore();
+	});
+    
+});
