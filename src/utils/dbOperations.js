@@ -29,4 +29,9 @@ const retriveMovieGenreFromDB = async(genreNumber) => {
 	return data;
 };
 
-module.exports = {storeMovieMetadataToDB, storeMovieGenreToDB, storeMovieActorsToDB, retriveMovieMetadataFromDB, retriveMovieGenreFromDB};
+const retriveMovieActorsFromDB = async() => {
+	const data = await db.actors.findAll();
+	return data;
+};
+
+module.exports = {storeMovieMetadataToDB, storeMovieGenreToDB, storeMovieActorsToDB, retriveMovieMetadataFromDB, retriveMovieGenreFromDB, retriveMovieActorsFromDB};

@@ -79,3 +79,15 @@ describe('the retriveMovieGenreFromDB function,', () => {
 	});
     
 });
+
+describe('the retriveMovieActorsFromDB function,', () => {
+
+	it('should retrieve actors list', async () => {
+		const mockSequelize = jest.spyOn(db.actors, 'findAll');
+		mockSequelize.mockResolvedValue();
+		await dbOperations.retriveMovieActorsFromDB();
+		expect(mockSequelize).toHaveBeenCalled();
+		mockSequelize.mockRestore();
+	});
+    
+});
