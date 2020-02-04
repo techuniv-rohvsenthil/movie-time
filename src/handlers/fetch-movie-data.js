@@ -20,6 +20,26 @@ async function fetchMetadata() {
 }
 
 
-module.exports = {fetchMetadata};
+async function fetchGenre(){
+	try{
+		const movieGenresURL = 'https://stormy-plains-72807.herokuapp.com/genres';
+		const movieGenresResponse = await fetch(movieGenresURL);
+		const movieGenres = await movieGenresResponse.json();
+		const movieGenreArray = movieGenres.genres;
+
+		for(let iter=0; iter<movieGenreArray.length; iter++){
+			await dbOperations.storeMovieGenreToDB(movieGenreArray[iter]);
+		}
+		return 'Successfully stored';
+	}
+	catch(err){
+		return err.message;
+
+	}
+}
+
+
+
+module.exports = {fetchMetadata, fetchGenre};
     
 	
