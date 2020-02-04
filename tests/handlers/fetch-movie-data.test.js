@@ -1,4 +1,4 @@
-const {fetchMetadata, fetchGenre} = require('../../src/handlers/fetch-movie-data');
+const {fetchMetadata, fetchGenre, fetchActors} = require('../../src/handlers/fetch-movie-data');
 const dbOperations = require('../../src/utils/dbOperations');
 
 describe('the fetchMetadata handler function,', () => {  
@@ -42,3 +42,25 @@ describe('the fetchGenre handler function,', () => {
 	});
 
 });
+
+describe('the fetchActors handler function,', () => {  
+
+	it('should call storeMovieActorsToDB', async () => {
+		const mockStoreToDB = jest.spyOn(dbOperations, 'storeMovieActorsToDB');
+		mockStoreToDB.mockResolvedValue();
+		const res = await fetchActors();
+		expect(mockStoreToDB).toHaveBeenCalled();
+		expect(res).toBe('Successfully stored');
+		mockStoreToDB.mockRestore();
+	});
+
+	it('should return error message when retrieve fails', async () => {
+		const mockStoreToDB = jest.spyOn(dbOperations, 'storeMovieActorsToDB');
+		mockStoreToDB.mockRejectedValue(new Error('Failed to store to DB'));
+		const res = await fetchActors();
+		expect(res).toBe('Failed to store to DB');
+		mockStoreToDB.mockRestore();
+	});
+
+});
+

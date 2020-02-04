@@ -38,8 +38,25 @@ async function fetchGenre(){
 	}
 }
 
+async function fetchActors(){
+	try{
+		const movieActorsURL = 'https://stormy-plains-72807.herokuapp.com/actors';
+		const movieActorsResponse = await fetch(movieActorsURL);
+		const movieActors = await movieActorsResponse.json();
+		const movieActorsArray = movieActors.actors;
+		for(let iter=0; iter<movieActorsArray.length; iter++){
+			await dbOperations.storeMovieActorsToDB(movieActorsArray[iter]); 
+		}
+		return 'Successfully stored';
+	}
+	catch(err){
+		return err.message;
+	}
+    
+}
 
 
-module.exports = {fetchMetadata, fetchGenre};
+
+module.exports = {fetchMetadata, fetchGenre, fetchActors};
     
 	
