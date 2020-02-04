@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "Rohini_Senthil",
+    "password": null,
+    "database": "movie-time",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "Rohini_Senthil",
+    "password": null,
+    "database": "movie-time",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "Rohini_Sentil",
+    "password": null,
+    "database": "movie-time",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}
