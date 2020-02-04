@@ -26,7 +26,7 @@ describe('the storeMovieGenreToDB function,', () => {
 			name: 'Crime',
 			id: 1
 		};
-		const mockSequelize = jest.spyOn(db.movies, 'create');
+		const mockSequelize = jest.spyOn(db.genres, 'create');
 		mockSequelize.mockResolvedValue();
 		await dbOperations.storeMovieGenreToDB(mockValues);
 		expect(mockSequelize).toHaveBeenCalled();
@@ -42,7 +42,7 @@ describe('the storeMovieActorsToDB function,', () => {
 			name:'Brad Pitt',
 			movies:'753347449,1393797017,6621531523'
 		};
-		const mockSequelize = jest.spyOn(db.movies, 'create');
+		const mockSequelize = jest.spyOn(db.actors, 'create');
 		mockSequelize.mockResolvedValue();
 		await dbOperations.storeMovieActorsToDB(mockValues);
 		expect(mockSequelize).toHaveBeenCalled();
