@@ -7,7 +7,7 @@ module.exports = {
 				type: Sequelize.STRING
 			},
 			movies: {
-				type: Sequelize.ARRAY
+				type: Sequelize.STRING
 			},
 			createdAt: {
 				allowNull: false,

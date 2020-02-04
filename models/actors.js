@@ -1,8 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 	const actors = sequelize.define('actors', {
-		name: DataTypes.STRING,
-		movies: DataTypes.ARRAY
+		name: {
+			type: DataTypes.STRING,
+			primaryKey: true},
+		movies: DataTypes.STRING
 	}, {});
 	actors.associate = function(models) {
 		// associations can be defined here

@@ -1,13 +1,16 @@
 'use strict';
 module.exports = {
 	up: (queryInterface, Sequelize) => {
-		return queryInterface.createTable('genres', {
+		return queryInterface.createTable('movies', {
+			id: {
+				primaryKey: true,
+				type: Sequelize.STRING
+			},
 			name: {
 				type: Sequelize.STRING
 			},
-			id: {
-				primaryKey: true,
-				type: Sequelize.NUMBER
+			genre: {
+				type: Sequelize.STRING
 			},
 			createdAt: {
 				allowNull: false,
@@ -20,6 +23,6 @@ module.exports = {
 		});
 	},
 	down: (queryInterface, Sequelize) => {
-		return queryInterface.dropTable('genres');
+		return queryInterface.dropTable('movies');
 	}
 };
