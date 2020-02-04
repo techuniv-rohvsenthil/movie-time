@@ -1,0 +1,28 @@
+{
+  "name": "evaluation-2",
+  "version": "1.0.0",
+  "description": "evaluation-2",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "evaluation",
+    "backend",
+    "server"
+  ],
+  "author": "Rohini Senthil",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^19.0.5",
+    "@hapi/joi": "^17.1.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "pg": "^7.18.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
+  }
+}
