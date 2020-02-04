@@ -1,5 +1,17 @@
 const fetch = require('node-fetch');
 const dbOperations = require('../utils/dbOperations');
+
+async function fetchMovieDetails(){
+	try{
+		await fetchMetadata();
+		await fetchGenre();
+		await fetchActors();
+		return 'Sucessfully stored';
+	}
+	catch(err){
+		return err.message;
+	}
+}
     
 async function fetchMetadata() {
 	try{
@@ -18,7 +30,6 @@ async function fetchMetadata() {
 
 	}
 }
-
 
 async function fetchGenre(){
 	try{
@@ -55,8 +66,6 @@ async function fetchActors(){
     
 }
 
-
-
-module.exports = {fetchMetadata, fetchGenre, fetchActors};
+module.exports = {fetchMetadata, fetchGenre, fetchActors, fetchMovieDetails};
     
 	

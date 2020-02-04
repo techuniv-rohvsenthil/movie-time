@@ -19,4 +19,9 @@ const storeMovieActorsToDB = async (movieObj) => {
 	await db.actors.create({name: name.toString(), movies: movies.toString() });
 };
 
+// const retriveMovieMetadataFromDB = async(movieName) => {
+// 	const data = await db.movies.findAll({where: {name: movieName}});
+// 	return data;
+// };
+
 module.exports = {storeMovieMetadataToDB, storeMovieGenreToDB, storeMovieActorsToDB};
